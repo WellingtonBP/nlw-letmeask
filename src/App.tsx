@@ -1,9 +1,18 @@
-import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
+
+import { AuthProvider } from './store/authProvider'
+import { Home } from './pages/Home'
+import { NewRoom } from './pages/NewRoom'
 
 function App() {
   return (
-   <h1>hello</h1>
-  );
+    <BrowserRouter>
+      <AuthProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/new-room" component={NewRoom} />
+      </AuthProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
