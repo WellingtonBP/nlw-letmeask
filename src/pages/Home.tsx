@@ -22,12 +22,16 @@ export function Home() {
     history.push('/rooms/new')
   }
 
-  const handleEnterRoom = async (event: FormEvent) => {
+  const handleJoinRoom = async (event: FormEvent) => {
     event.preventDefault()
     if (roomCode.trim() === '') return
     const room = await database.ref(`rooms/${roomCode}`).get()
     if (!room.exists()) {
-      alert('Room doesnt exists')
+      alert('Room doesnt exists.')
+      return
+    }
+    if (room.val().endedAt) {
+      alert('Room already closed.')
       return
     }
     history.push('/rooms/' + roomCode)
@@ -48,7 +52,7 @@ export function Home() {
             Crie sua sala com o google
           </button>
           <div className="separator">Ou entre em uma sala</div>
-          <form onSubmit={handleEnterRoom}>
+          <form onSubmit={handleJoinRoom}>
             <input
               type="text"
               placeholder="Digite o código da sala"
