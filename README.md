@@ -2,6 +2,8 @@
 
 #### _Next Level Week Project_
 
+![Homepage Design](./homepage.png)
+
 ### Features
 
 _Login with google account_
