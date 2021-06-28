@@ -15,7 +15,7 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user } = useContext(authContext)
+  const { user, sign } = useContext(authContext)
   const roomId = useParams<RoomParams>().id
   const [newQuestion, setNewQuestion] = useState('')
   const { title, questions } = useRoom(roomId)
@@ -77,7 +77,8 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>
+                Para enviar uma pergunta,{' '}
+                <button onClick={sign}>faça seu login</button>
               </span>
             )}
             <Button type="submit" disabled={!user}>
