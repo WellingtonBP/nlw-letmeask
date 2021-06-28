@@ -11,7 +11,7 @@ _Login with google account_
 ##### Admin
 
 - Create rooms
-- Aswers question
+- Highlight question
 - Mark questions as answered
 - Delete questions
 
