@@ -34,7 +34,8 @@ export function Home() {
       alert('Room already closed.')
       return
     }
-    history.push('/rooms/' + roomCode)
+    const url = room.val().authorId === user?.id ? '/admin/rooms/' : '/rooms/'
+    history.push(url + roomCode)
   }
 
   return (
